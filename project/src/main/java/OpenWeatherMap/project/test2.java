@@ -33,10 +33,12 @@ public class test2 {
 		System.out.println("2.FIVE day forecast data");
 		System.out.println("3.Current Air Pollution data");
 		int option=scan.nextInt();
+		if(option==0||option>3){
+			System.out.println("Invalid Option");
+		}
 		
 		if(option==1) {
 		String url_Current_Weather="https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon="+ lon +"&units=metric"+ "&appid="+API_KEY;
-		//"&exclude="+part+
 		StringBuilder result_Current_Weather=new StringBuilder();
 		URL url1;
 		try {
@@ -81,7 +83,6 @@ public class test2 {
 				url = new URL(urlString);
 				 HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
 				 conn.setRequestMethod("GET");
-				//URLConnection conn=url.openConnection();
 				BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 				String line;
 				while ((line = rd.readLine())!=null) {
